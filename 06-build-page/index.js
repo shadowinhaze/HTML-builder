@@ -1,7 +1,7 @@
 const fs = require('fs');
 const fsp = require('fs/promises');
 const path = require('path');
-const bundler = require('../07-universal-func/bundler.js');
+const bundler = require('../07-universal-func/bundler');
 const copyier = require('../07-universal-func/copier')
 
 const fileTemplateHtml = path.join(__dirname, 'template.html');

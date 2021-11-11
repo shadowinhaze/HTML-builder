@@ -6,16 +6,14 @@ const copyier = require('../07-universal-func/copier')
 
 const fileTemplateHtml = path.join(__dirname, 'template.html');
 const pathToComponents = path.join(__dirname, 'components');
-const pathToStyles = path.join(__dirname, 'styles');
 const pathToDist = path.join(__dirname, 'project-dist');
+const fileResultIndexHtml = path.join(pathToDist, 'index.html');
 
 fsp.mkdir(pathToDist, { recursive: true });
 fsp.mkdir(path.join(pathToDist, 'assets'), { recursive: true });
 
 copyier(__dirname, 'assets', 'project-dist/assets');
 bundler(__dirname, 'styles', 'project-dist', 'style.css');
-
-const fileResultIndexHtml = path.join(pathToDist, 'index.html');
 
 const reBirth = (filePath, replacer) => (replacer) ? fs.writeFile(filePath, replacer, err => (err) ? console.log(err) : true) : fs.writeFile(filePath, '', err => (err) ? console.log(err) : true);
 async function getContent(filePath) {

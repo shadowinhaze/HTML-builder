@@ -13,7 +13,7 @@ const pathToFolder = path.join(__dirname, 'secret-folder');
             const fileName = await path.parse(filePath).name;
             const fileExt = await path.parse(filePath).ext.slice(1);
             const fileSize = await fileStats.size;
-            console.log(`${fileName} - ${fileExt} - ${fileSize / 1024}kb`)
+            console.log(`${fileName} - ${fileExt} - ${Math.round(fileSize / 1024 * 100) / 100} kb`);
           };
         };
       } catch (err) {

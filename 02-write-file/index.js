@@ -15,9 +15,10 @@ const checkIt = (str) => {
 }
 
 const filePath = path.join(__dirname, 'input.txt');
+fs.writeFile(filePath, '', e => { if (e) console.log(e) });
 let writableStream = fs.createWriteStream(filePath, {flags: 'a+'});
 
-rl.question('Hi, write some text? \n', userInput => {
+rl.question('Hi, write some text... \n', userInput => {
     checkIt(userInput);
     writableStream.write(userInput);
     rl.on('line', userInput => {
@@ -27,6 +28,6 @@ rl.question('Hi, write some text? \n', userInput => {
 });
 
 rl.on('close', function() {
-    console.log('\nThank you, bye!!!');
+    console.log('\nThank you, you can find your text in a file!');
     process.exit(0);
 });
